@@ -26,7 +26,6 @@ namespace ReadyPlayerOne.Models
         // Add properties for individual parts of PlayerImage
         public string PlayerImageID { get; set; } = string.Empty;
         public string Image { get; set; } = string.Empty;
-        // Add any other properties you want from PlayerImage
 
         // Add properties for individual parts of Alignment
         public string AlignmentID { get; set; } = string.Empty;

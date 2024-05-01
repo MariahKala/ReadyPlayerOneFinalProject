@@ -16,37 +16,77 @@
 
     <div class="mb-3">
         <label asp-for="Class" class="form-label">Class</label>
-        <input asp-for="Class" class="form-control">
+        <select class="form-control" asp-for="Class">
+            <option value="Mage">Mage</option>
+            <option value="Warrior">Warrior</option>
+            <option value="Rogue">Rogue</option>
+            <option value="Warlock">Warlock</option>
+            <option value="Witch">Witch</option>
+            <option value="Paladin">Paladin</option>
+            <option value="Healer">Healer</option>
+            <option value="Archer">Archer</option>
+            <option value="Bard">Bard</option>
+        </select>
     </div>
 
     <div class="mb-3">
         <label asp-for="Health" class="form-label">Health</label>
-        <input asp-for="Health" class="form-control">
+        <select class="form-control" asp-for="Health">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
     </div>
 
     <div class="mb-3">
         <label asp-for="Strength" class="form-label">Strength</label>
-        <input asp-for="Strength" class="form-control">
+                <select class="form-control" asp-for="Strength">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
     </div>
 
     <div class="mb-3">
         <label asp-for="Intelligence" class="form-label">Intelligence</label>
-        <input asp-for="Intelligence" class="form-control">
+                <select class="form-control" asp-for="Intelligence">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
     </div>
 
     <div class="mb-3">
         <label asp-for="Stamina" class="form-label">Stamina</label>
-        <input asp-for="Stamina" class="form-control">
+                <select class="form-control" asp-for="Stamina">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
     </div>
 
     <div class="mb-3">
         <label asp-for="Stealth" class="form-label">Stealth</label>
-        <input asp-for="Stealth" class="form-control">
+                <select class="form-control" asp-for="Stealth">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
     </div>
 
     <div class="mb-3">
         <label asp-for="Luck" class="form-label">Luck</label>
-        <input asp-for="Luck" class="form-control">
+                <select class="form-control" asp-for="Luck">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
     </div>
 
     <div class="mb-3">
