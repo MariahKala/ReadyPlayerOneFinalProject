@@ -35,6 +35,10 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
+        
+        label {
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -46,8 +50,8 @@
             </button> <nav class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav me-auto">
                     <a class="nav-item nav-link active" href="/">Home</a>
-                    <a class="nav-item nav-link" href="Player/Create">Create Player</a>
-                    <a class="nav-item nav-link" href="Player/Catalogue">Catalogue</a>
+                    <a class="nav-item nav-link" asp-controller="Player" asp-action="Create">Create Player</a>
+                    <a class="nav-item nav-link" asp-controller="Player" asp-action="Catalogue">Catalogue</a>
 
                 </div> <div class="navbar-nav ms-auto">
                 </div>

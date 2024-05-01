@@ -30,6 +30,7 @@
                 <li class="list-inline-item">
                     <a asp-action="Details" asp-route-id="@player.PlayerID">
                         <img src="~/images/@player.PlayerImage.Image" alt="@player.PlayerName"
+                            width="200" height="200"
                              title="@player.PlayerName | @(player.Alignment.AlignmentType)" />
                     </a>
                 </li>
