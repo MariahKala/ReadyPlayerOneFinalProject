@@ -1,0 +1,43 @@
+﻿@model ReadyPlayerOne.Models.PlayerViewModel
+@{
+    ViewData["Title"] = "Players";
+}
+<div class="row">
+    <div class="col-md-3">
+        <h3 class="mt-3">Alignment</h3>
+        <div class="list-group">
+            <a asp-action="Index"
+               asp-route-activeAlign="all"
+               class="list-group-item @Model.CheckActiveAlign("all")">
+                All
+            </a>
+            @foreach (var alignment in Model.Alignments)
+            {
+                <a asp-action="Index"
+                   asp-route-activeAlign="@alignment.AlignmentType"
+                   class="list-group-item @Model.CheckActiveAlign(alignment.AlignmentType)">
+                    @alignment.AlignmentType
+                </a>
+            }
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <h3 class="mt-3">Players</h3>
+        <ul class="list-inline">
+            @foreach (Player player in Model.Players)
+            {
+                <li class="list-inline-item">
+                    <a asp-action="Details" asp-route-id="@player.PlayerID">
+                        <img src="~/images/@player.PlayerImage.Image" alt="@player.PlayerName"
+                             title="@player.PlayerName | @(player.Alignment.AlignmentType)" />
+                    </a>
+                </li>
+            }
+        </ul>
+        
+<div class="mb-2">
+    <a asp-controller="Player" asp-action="Create" class="btn btn-primary">Create New Player</a>
+</div>
+    </div>
+</div>

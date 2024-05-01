@@ -1,0 +1,63 @@
+﻿@model Player
+@{
+    string title = ViewBag.Action + " Player";
+    ViewData["Title"] = title;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="PlayerName" class="form-label">Name</label>
+        <input asp-for="PlayerName" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Class" class="form-label">Class</label>
+        <input asp-for="Class" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Health" class="form-label">Health</label>
+        <input asp-for="Health" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Strength" class="form-label">Strength</label>
+        <input asp-for="Strength" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Intelligence" class="form-label">Intelligence</label>
+        <input asp-for="Intelligence" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Stamina" class="form-label">Stamina</label>
+        <input asp-for="Stamina" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Stealth" class="form-label">Stealth</label>
+        <input asp-for="Stealth" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Luck" class="form-label">Luck</label>
+        <input asp-for="Luck" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Alignment" class="form-label">Alignment</label>
+        <input asp-for="Alignment" class="form-control">
+    </div>
+
+
+    <input type="hidden" asp-for="PlayerID" />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-controller="Home" asp-action="Index"
+       class="btn btn-primary">Cancel</a>
+</form>

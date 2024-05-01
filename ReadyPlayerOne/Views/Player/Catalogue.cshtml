@@ -1,0 +1,64 @@
+﻿@model List<Player>
+@{
+    ViewData["Title"] = "Players";
+}
+
+<div class="mb-2">
+    <a asp-controller="Player" asp-action="Create" class="btn btn-primary">Create New Player</a>
+</div>
+
+<div class="container">
+    <h1 class="text-center mb-4">Players</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Player Image</th>
+                        <th>Player Name</th>
+                        <th>Class</th>
+                        <th>Health</th>
+                        <th>Strength</th>
+                        <th>Intelligence</th>
+                        <th>Stamina</th>
+                        <th>Stealth</th>
+                        <th>Luck</th>
+                        <th>Alignment</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var player in Model)
+                    {
+                        <tr>
+                            <td>
+                                @if (player.PlayerImage != null)
+                                {
+                                    <img src="~/images/@player.PlayerImage.Image" alt="@player.PlayerImage.Image Image" />
+                                }
+                            </td>
+                            <td>@player.PlayerName</td>
+                            <td>@player.Class</td>
+                            <td>@player.Health</td>
+                            <td>@player.Strength</td>
+                            <td>@player.Intelligence</td>
+                            <td>@player.Stamina</td>
+                            <td>@player.Stealth</td>
+                            <td>@player.Luck</td>
+                            <td>@player.Alignment</td>
+                            <td>
+                                <a asp-controller="Player" asp-action="Edit"
+                                   asp-route-id="@player.PlayerID">Edit</a>
+                                <a asp-controller="Player" asp-action="Delete"
+                                   asp-route-id="@player.PlayerID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+

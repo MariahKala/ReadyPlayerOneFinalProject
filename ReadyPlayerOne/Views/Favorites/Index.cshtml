@@ -1,0 +1,42 @@
+﻿@model PlayerViewModel
+@{
+    ViewData["Title"] = "Favorites";
+}
+
+<div class="text-center">
+    <h2>My Favorites</h2>
+    <form asp-action="Delete" method="post">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-primary"
+           asp-route-activeAlign="@Model.ActiveAlign">
+            Back to Home Page
+        </a>
+        <button type="submit" class="btn btn-primary">
+            Clear Favorites
+        </button>
+    </form>
+    <br />
+</div>
+
+
+<div class="row">
+    <div class="col-8 offset-2">
+        <ul class="list-group">
+            @foreach (Player player in Model.Players)
+            {
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="~/images/@player.PlayerImage" alt="" />
+                        </div>
+                        <div class="col-sm-4">
+                            @player.PlayerName
+                        </div>
+                        <div class="col-sm-4">
+                            @player.Alignment.AlignmentType
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

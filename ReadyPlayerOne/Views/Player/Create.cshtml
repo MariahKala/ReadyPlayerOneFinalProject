@@ -1,0 +1,62 @@
+﻿@model Player
+@{
+    ViewData["Title"] = "Create Player";
+}
+
+<h1>Create Player</h1>
+
+<div>
+    <form asp-controller="Player" asp-action="Create" method="post">
+        <div class="form-group">
+            <label asp-for="PlayerName">Player Name:</label>
+            <input asp-for="PlayerName" class="form-control" />
+            <span asp-validation-for="PlayerName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Class" class="form-label">Class</label>
+            <input asp-for="Class" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Health" class="form-label">Health</label>
+            <input asp-for="Health" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Strength" class="form-label">Strength</label>
+            <input asp-for="Strength" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Intelligence" class="form-label">Intelligence</label>
+            <input asp-for="Intelligence" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Stamina" class="form-label">Stamina</label>
+            <input asp-for="Stamina" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Stealth" class="form-label">Stealth</label>
+            <input asp-for="Stealth" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Luck" class="form-label">Luck</label>
+            <input asp-for="Luck" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Alignment" class="form-label">Alignment</label>
+            <input asp-for="Alignment" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<div class="mt-3">
+    <a asp-controller="Player" asp-action="Index">Back to List</a>
+</div>
+
