@@ -50,9 +50,19 @@
     </div>
 
     <div class="mb-3">
-        <label asp-for="Alignment" class="form-label">Alignment</label>
-        <input asp-for="Alignment" class="form-control">
+        <label asp-for="AlignmentID" class="form-label">Alignment</label>
+        <select class="form-control" asp-for="AlignmentID" asp-items="@(new SelectList(ViewBag.AlignmentTypes, "AlignmentID", "AlignmentType"))">
+            <option value="-1">Select</option>
+        </select>
     </div>
+
+    <div class="mb-3">
+        <label asp-for="PlayerImageID" class="form-label">Player Image</label>
+        <select class="form-control" asp-for="PlayerImageID" asp-items="@(new SelectList(ViewBag.PlayerImages, "PlayerImageID", "Image"))">
+            <option value="-1">Select</option>
+        </select>
+    </div>
+    
 
 
     <input type="hidden" asp-for="PlayerID" />

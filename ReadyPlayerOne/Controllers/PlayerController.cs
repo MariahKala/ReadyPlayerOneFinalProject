@@ -25,6 +25,8 @@ namespace ReadyPlayerOne.Controllers
             ViewBag.Action = "Add";
             //Adding Player Images
             ViewBag.PlayerImages = context.PlayerImages.OrderBy(p => p.Image).ToList();
+            ViewBag.AlignmentTypes = context.Alignments.ToList();
+            ViewBag.PlayerImages = context.PlayerImages.ToList();
             return View("Edit", new Player());
         }
 
@@ -35,6 +37,8 @@ namespace ReadyPlayerOne.Controllers
             ViewBag.Action = "Edit";
             //Adding Player Images
             ViewBag.PlayerImages = context.PlayerImages.OrderBy(p => p.Image).ToList();
+            ViewBag.AlignmentTypes = context.Alignments.ToList();
+            ViewBag.PlayerImages = context.PlayerImages.ToList();
             var player = context.Players.Find(id);
             return View(player);
         }
@@ -56,6 +60,8 @@ namespace ReadyPlayerOne.Controllers
                     (player.PlayerID == 0) ? "Add" : "Edit";
                 //Adding Player Images
                 ViewBag.PlayerImages = context.PlayerImages.OrderBy(p => p.Image).ToList();
+                ViewBag.AlignmentTypes = context.Alignments.ToList();
+                ViewBag.PlayerImages = context.PlayerImages.ToList();
                 return View(player);
             }
         }
@@ -79,6 +85,8 @@ namespace ReadyPlayerOne.Controllers
         public IActionResult Create()
         {
             ViewBag.Action = "Create";
+            ViewBag.AlignmentTypes = context.Alignments.ToList();
+            ViewBag.PlayerImages = context.PlayerImages.ToList();
             return View("Edit", new Player());
         }
 
@@ -93,6 +101,8 @@ namespace ReadyPlayerOne.Controllers
                 return RedirectToAction("Index", "Home");
             }
             ViewBag.Action = "Create";
+            ViewBag.AlignmentTypes = context.Alignments.ToList();
+            ViewBag.PlayerImages = context.PlayerImages.ToList();
             return View("Edit", player);
         }
 

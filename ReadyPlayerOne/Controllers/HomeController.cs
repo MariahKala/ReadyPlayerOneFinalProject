@@ -52,15 +52,15 @@ namespace ReadyPlayerOne.Controllers
         }
 
         [HttpGet]
-        public IActionResult Details(string id)
+        public IActionResult Details(int id)
         {
             var session = new PlayerSession(HttpContext.Session);
             var model = new PlayerViewModel
             {
                 Player = _context.Players
                         .Include(t => t.Alignment)
-                        //.Include(t => t.PlayerImage) //Excluding just to see
-                        .FirstOrDefault(t => t.PlayerName == id) ?? new Player(), //This should be PlayerID, but there is an issue as it compares an Int and a String
+                        .Include(t => t.PlayerImage) //Excluding just to see
+                        .FirstOrDefault(t => t.PlayerID == id) ?? new Player(), //This should be PlayerID, but there is an issue as it compares an Int and a String
                 ActiveAlign = session.GetActiveAlign()
             };
             return View(model);

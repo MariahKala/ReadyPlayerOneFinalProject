@@ -34,11 +34,11 @@ namespace ReadyPlayerOne.Models
         // PlayerImage is its own class so I can pull the images easier.
         [ForeignKey("PlayerImage")]
         public string PlayerImageID { get; set; } = string.Empty;
-        public PlayerImage PlayerImage { get; set; } = null!;
+        public PlayerImage? PlayerImage { get; set; }
 
         // Alignment as its own class for filtering and favorites.
         [ForeignKey("Alignment")]
         public string AlignmentID { get; set; } = string.Empty;
-        public Alignment Alignment { get; set; } = null!;
+        public Alignment? Alignment { get; set; }
     }
 }
