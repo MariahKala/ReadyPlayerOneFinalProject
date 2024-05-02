@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using ReadyPlayerOne.Models;
 
-namespace ReadyPlayerOne.Controllers
+namespace ReadyPlayerOne.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class PlayerController : Controller
     {
+        
         private PlayerContext context { get; set; }
 
         public PlayerController(PlayerContext ctx) => context = ctx;
@@ -17,9 +19,9 @@ namespace ReadyPlayerOne.Controllers
             m => m.PlayerName).ToList();
             return View(players);
         }
-        [Authorize]
+        
+        [Route("[area]/[controller]s/{id?}")]
         [HttpGet]
-
         public IActionResult Add()
         {
             ViewBag.Action = "Add";
@@ -30,7 +32,6 @@ namespace ReadyPlayerOne.Controllers
             return View("Edit", new Player());
         }
 
-        [Authorize]
         [HttpGet]
         public IActionResult Edit(int id)
         {

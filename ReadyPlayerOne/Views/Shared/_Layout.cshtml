@@ -42,6 +42,7 @@
     </style>
 </head>
 <body>
+    <div class="container">
     <nav class="navbar navbar-expand-md navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">ReadyPlayerOne</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -56,6 +57,7 @@
                 </div> <div class="navbar-nav ms-auto">
                 </div>
 
+                <ul class="navbar-nav ms-auto">
                 <!-- Buttons and links could be a partial class or a view component -->
                 @using Microsoft.AspNetCore.Identity
                 @inject SignInManager<User> signInManager
@@ -91,8 +93,14 @@
                            asp-area="" class="btn btn-outline-light">Log In</a>
                     </li>
                 }
-                <!--Admin link goes here -->
-            </nav>
+                 
+                <li class="nav-item">
+                        <a class="nav-link @(Nav.Active("Admin", current) ? "active" : "")" 
+    asp-action="Index" asp-controller="Player" asp-area="Admin">
+    <span class="fas fa-cog"></span>&nbsp;Admin
+</a>
+                    </li>
+             </ul>
         </div>
     </nav>
 

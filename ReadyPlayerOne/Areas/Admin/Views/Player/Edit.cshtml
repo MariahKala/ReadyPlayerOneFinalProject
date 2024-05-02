@@ -1,0 +1,113 @@
+﻿@model Player
+@{
+    string title = ViewBag.Action + " Player";
+    ViewData["Title"] = title;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="PlayerName" class="form-label">Name</label>
+        <input asp-for="PlayerName" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Class" class="form-label">Class</label>
+        <select class="form-control" asp-for="Class">
+            <option value="Mage">Mage</option>
+            <option value="Warrior">Warrior</option>
+            <option value="Rogue">Rogue</option>
+            <option value="Warlock">Warlock</option>
+            <option value="Witch">Witch</option>
+            <option value="Paladin">Paladin</option>
+            <option value="Healer">Healer</option>
+            <option value="Archer">Archer</option>
+            <option value="Bard">Bard</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Health" class="form-label">Health</label>
+        <select class="form-control" asp-for="Health">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Strength" class="form-label">Strength</label>
+                <select class="form-control" asp-for="Strength">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Intelligence" class="form-label">Intelligence</label>
+                <select class="form-control" asp-for="Intelligence">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Stamina" class="form-label">Stamina</label>
+                <select class="form-control" asp-for="Stamina">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Stealth" class="form-label">Stealth</label>
+                <select class="form-control" asp-for="Stealth">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Luck" class="form-label">Luck</label>
+                <select class="form-control" asp-for="Luck">
+            @for (int i = 1; i <= 20; i++)
+            {
+            <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="AlignmentID" class="form-label">Alignment</label>
+        <select class="form-control" asp-for="AlignmentID" asp-items="@(new SelectList(ViewBag.AlignmentTypes, "AlignmentID", "AlignmentType"))">
+            <option value="-1">Select</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PlayerImageID" class="form-label">Player Image</label>
+        <select class="form-control" asp-for="PlayerImageID" asp-items="@(new SelectList(ViewBag.PlayerImages, "PlayerImageID", "Image"))">
+            <option value="-1">Select</option>
+        </select>
+    </div>
+    
+
+
+    <input type="hidden" asp-for="PlayerID" />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-controller="Home" asp-action="Index"
+       class="btn btn-primary">Cancel</a>
+</form>

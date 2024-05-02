@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using ReadyPlayerOne.Models;
 
-namespace ReadyPlayerOne.Models.ViewModel
+namespace ReadyPlayerOne.Areas.Admin.Models
 {
     public class UserViewModel
     {

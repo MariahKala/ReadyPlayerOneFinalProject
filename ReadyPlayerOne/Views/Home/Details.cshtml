@@ -18,7 +18,30 @@
             <li class="list-group-item">
                 <h4>Alignment: @Model.Player.Alignment.AlignmentType</h4>
             </li>
-
+            <li class="list-group-item">
+                <h4>Name: @Model.Player.PlayerName</h4>
+            </li>
+            <li class="list-group-item">
+                <h4>Class: @Model.Player.Class</h4>
+            </li>
+             <li class="list-group-item">
+                <h4>Strength: @Model.Player.Strength</h4>
+            </li>
+             <li class="list-group-item">
+                <h4>Stamina: @Model.Player.Stamina</h4>
+            </li>
+             <li class="list-group-item">
+                <h4>Stealth: @Model.Player.Stealth</h4>
+            </li>
+             <li class="list-group-item">
+                <h4>Health: @Model.Player.Health</h4>
+            </li>
+             <li class="list-group-item">
+                <h4>Intelligence: @Model.Player.Intelligence</h4>
+            </li>
+            <li class="list-group-item">
+                <h4>Luck: @Model.Player.Luck</h4>
+            </li>
             <li class="list-group-item">
                 <form asp-controller="Favorites" asp-action="Add" method="post">
                     <a asp-action="Index" class="btn btn-primary">

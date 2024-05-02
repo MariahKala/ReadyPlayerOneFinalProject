@@ -8,6 +8,7 @@ namespace ReadyPlayerOne.Models
         public int PlayerID { get; set; }
 
         [Required(ErrorMessage = "Please enter a name.")]
+        [StringLength(30, ErrorMessage = "Name must be 30 characters or less.")]
         public string PlayerName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Please choose a class.")]

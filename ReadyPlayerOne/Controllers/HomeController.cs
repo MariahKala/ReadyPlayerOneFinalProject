@@ -22,6 +22,10 @@ namespace ReadyPlayerOne.Controllers
             var session = new PlayerSession(HttpContext.Session);
             session.SetActiveAlign(model.ActiveAlign);
 
+            // Debugging: Print ActiveAlign value
+            Console.WriteLine("Active Alignment: " + model.ActiveAlign);
+            //
+
             int? count = session.GetMyPlayerCount();
             if (!count.HasValue)
             {
@@ -44,6 +48,10 @@ namespace ReadyPlayerOne.Controllers
             IQueryable<Player> query = _context.Players.OrderBy(p => p.PlayerName);
             if (model.ActiveAlign != "all")
             {
+                // Debugging: Check alignment filter condition
+                Console.WriteLine("Filtering by Alignment: " + model.ActiveAlign);
+                //
+
                 query = query.Where(p => p.Alignment.AlignmentID == model.ActiveAlign); ;
             }
             model.Players = query.ToList();
@@ -59,8 +67,8 @@ namespace ReadyPlayerOne.Controllers
             {
                 Player = _context.Players
                         .Include(t => t.Alignment)
-                        .Include(t => t.PlayerImage) //Excluding just to see
-                        .FirstOrDefault(t => t.PlayerID == id) ?? new Player(), //This should be PlayerID, but there is an issue as it compares an Int and a String
+                        .Include(t => t.PlayerImage) 
+                        .FirstOrDefault(t => t.PlayerID == id) ?? new Player(), 
                 ActiveAlign = session.GetActiveAlign()
             };
             return View(model);

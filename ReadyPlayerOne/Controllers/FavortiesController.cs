@@ -29,13 +29,13 @@ namespace ReadyPlayerOne.Controllers
         [HttpPost]
         public RedirectToActionResult Add(Player player)
         {
-            // get full team data from database
+            // get all player data from database
             player = context.Players
            .Include(t => t.Alignment)
            .Where(t => t.PlayerID == player.PlayerID)
            .FirstOrDefault() ?? new Player();
 
-            // add team to favorite teams in session and cookie
+            // add player to favorite player in session and cookie
             var session = new PlayerSession(HttpContext.Session);
             var cookies = new PlayerCookies(Response.Cookies);
 
